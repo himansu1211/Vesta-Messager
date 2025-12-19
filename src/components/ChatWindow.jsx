@@ -5,7 +5,7 @@ import {
   addDoc, serverTimestamp, doc, updateDoc 
 } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { Paperclip, Send, File, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { Paperclip, Send, File, Image as ImageIcon, Loader2, Clock } from 'lucide-react';
 
 const ChatWindow = ({ room, user }) => {
   const [messages, setMessages] = useState([]);
@@ -105,22 +105,14 @@ const ChatWindow = ({ room, user }) => {
       </div>
 
       {/* Message Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-slate-50/50 to-white custom-scrollbar">
+      <div className="flex-1 overflow-y-auto p-4 space-y-2 bg-[#e5ddd5] custom-scrollbar">
         {messages.map((m) => (
-          <div key={m.id} className={`flex ${m.senderEmail === user.email ? 'justify-end' : 'justify-start'} group`}>
-            <div className={`p-4 rounded-3xl max-w-[75%] shadow-lg transition-all hover:shadow-xl ${
+          <div key={m.id} className={`flex ${m.senderEmail === user.email ? 'justify-end' : 'justify-start'}`}>
+            <div className={`message-bubble p-3 rounded-lg max-w-[75%] relative ${
               m.senderEmail === user.email
-                ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-tr-md'
-                : 'bg-white border border-slate-200/50 text-gray-800 rounded-tl-md'
+                ? 'sent bg-[#dcf8c6] text-gray-800 rounded-br-sm'
+                : 'received bg-white text-gray-800 rounded-bl-sm'
             }`}>
-              <div className="flex items-center gap-2 mb-2">
-                <p className="text-xs opacity-70 font-bold lowercase">{m.senderEmail.split('@')[0]}</p>
-                <span className="text-xs opacity-50 flex items-center gap-1">
-                  <Clock size={10} />
-                  {formatTimestamp(m.createdAt)}
-                </span>
-              </div>
-
               {m.type === 'file' ? (
                 <a href={m.fileUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:underline p-2 rounded-xl bg-black/10 transition-all">
                   {m.fileType?.includes('image') ? <ImageIcon size={24} className="text-blue-500"/> : <File size={24} className="text-gray-500"/>}
@@ -132,6 +124,9 @@ const ChatWindow = ({ room, user }) => {
               ) : (
                 <p className="text-sm leading-relaxed whitespace-pre-wrap">{m.text}</p>
               )}
+              <div className={`text-xs text-gray-500 mt-1 ${m.senderEmail === user.email ? 'text-right' : 'text-left'}`}>
+                {formatTimestamp(m.createdAt)}
+              </div>
             </div>
           </div>
         ))}

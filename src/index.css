@@ -1,5 +1,9 @@
+/* Tailwind CSS directives - processed by PostCSS plugin */
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
 
 @layer base {
@@ -10,6 +14,7 @@
 
 @layer components {
   .glass {
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.8);
   }
@@ -25,10 +30,6 @@
   .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
-  }
-
-  .custom-scrollbar {
-    /* Fallback for browsers that don't support scrollbar-width */
   }
 
   .custom-scrollbar::-webkit-scrollbar {

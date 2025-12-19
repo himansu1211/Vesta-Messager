@@ -4,17 +4,17 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-VITE_FIREBASE_API_KEY=your_key
-VITE_FIREBASE_AUTH_DOMAIN=vesta-messenger-5337e.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=vesta-messenger-5337e
-VITE_FIREBASE_STORAGE_BUCKET=vesta-messenger-5337e.firebasestorage.app
-VITE_FIREBASE_SENDER_ID=your_id
-VITE_FIREBASE_APP_ID=your_id
+  apiKey: "AIzaSyCactoGYTEBZ1ap1SAkjo2iuxgEKdAGI1A",
+  authDomain: "vesta-messenger-5337e.firebaseapp.com",
+  projectId: "vesta-messenger-5337e",
+  storageBucket: "vesta-messenger-5337e.firebasestorage.app",
+  messagingSenderId: "590499217282",
+  appId: "1:590499217282:web:12bf0d7c30f9dd2f6e199b",
+  measurementId: "G-VQ38TVL6XL"
 };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-
 export const googleProvider = new GoogleAuthProvider();

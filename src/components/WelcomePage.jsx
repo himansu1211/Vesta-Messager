@@ -75,7 +75,7 @@ const WelcomePage = () => {
 
         {/* Footer */}
         <p className="text-sm text-gray-500 mt-6 animate-fade-in-up animation-delay-2000">
-          Join thousands of users already chatting on Vesta
+          Start chatting on Vesta
         </p>
       </div>
 
