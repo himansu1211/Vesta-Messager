@@ -6,7 +6,7 @@
 ---
 
 ## 🚀 Live Demo
-**Check out the app here:** [Your Vercel Link Here]
+**Check out the app here:** https://vesta-messager.netlify.app/
 
 ---
 
@@ -32,9 +32,5 @@
 
 ---
 
-## ⚙️ Local Development Setup
-
-### 1. Clone the repo
-```bash
-git clone [https://github.com/your-username/vesta-messenger.git](https://github.com/your-username/vesta-messenger.git)
-cd vesta-messenger
+## 🛡️ License
+Distributed under the MIT License. Created by Himansu Kumar Sahu
